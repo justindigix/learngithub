@@ -16,6 +16,12 @@
     - [Check status](#Check-status)
     - [Add files into staging area](#Add-files-into-staging-area)
     - [Commit files](#Commit-files)
+  - [Diff](#Diff)
+    - [Diff comparing the current working to the staged](#Diff-comparing-the-current-working-to-the-staged)
+    - [Diff comparing the staged area to the last commit](#Diff-comparing-the-staged-area-to-the-last-commit)
+    - [Diff comparing current working to the HEAD](#Diff-comparing-current-working-to-the-HEAD)
+    - [Stylish Diff commands](#Stylish-Diff-commands)
+    - [Diff in status](#Diff-in-status)
 
 ## Setup
 
@@ -110,3 +116,47 @@ git add <file>
 ```git
 git commit -m "<description>"
 ```
+
+## Diff
+
+### Diff comparing the current working to the staged 
+
+### Diff comparing the staged area to the last commit
+
+To see what staged changes are made to the last local commit, "**--staged**" means the status after **git add**.
+
+```git
+git diff --staged
+
+git diff --cached
+```
+
+### Diff comparing current working to the HEAD
+
+To see what current changes in working, no matter staged or unstaged, are made to HEAD, which means the recently last commit
+
+```git
+git diff HEAD
+```
+
+### Stylish Diff commands
+
+To check the difference in words
+
+```git
+git diff --color-words
+```
+
+### Diff in status
+
+To return the differences of status
+
+```git
+# current working against staged (default)
+git diff --stat
+# staged against last local commit
+git diff --cached --stat
+# current working against last local commit
+git diff HEAD --stat
+```
+
