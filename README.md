@@ -31,6 +31,12 @@
     - [Remove deleted file](#Remove-deleted-file)
     - [Update all tracked files (most commonly used)](#Update-all-tracked-files-most-commonly-used)
     - [Remove file from cached / stage](#Remove-file-from-cached--stage)
+  - [Move](#Move)
+    - [Move a file to a different path](#Move-a-file-to-a-different-path)
+    - [In case moved a file without using `git mv` but `mv`](#In-case-moved-a-file-without-using-git-mv-but-mv)
+    - [Moving a bunch of files](#Moving-a-bunch-of-files)
+    - [Moving files under a certain directory](#Moving-files-under-a-certain-directory)
+    - [Display the histories of a file](#Display-the-histories-of-a-file)
 
 ## Setup
 
@@ -233,7 +239,8 @@ which also means all delted files can be removed, if they have been tracked befo
 
 ```git
 git add -u
-# or for the current path
+# or starting from the current path and walking 
+# through all sub directories recursively
 git add -u .
 ```
 
@@ -245,3 +252,48 @@ git rm --cahced file3.txt
 
 > Note: The file was not removed from file system. Instead it is no more tracked by **git**.
 
+## Move
+
+### Move a file to a different path
+
+Suppose we have a tracked file "**header.jpg**" in current path, and we want to move it to "**source/header.jpg**"
+
+```git
+git mv header.jpg source/header.jpg
+```
+
+### In case moved a file without using `git mv` but `mv`
+
+```git
+# move file
+mv prod.log production.log
+# fix this by 1. deleting the old file and add new file.
+git rm prod.log
+git add production.log
+```
+
+With `git status`, the **renamed** hint will be shown as same as the example above.
+
+### Moving a bunch of files
+
+All changes from current path and sub directories will be staged.
+
+```git
+git add -A .
+```
+
+### Moving files under a certain directory
+
+```git
+git add <path>/
+```
+> Note: all changes under the path and its sub directories will be staged.
+
+### Display the histories of a file
+
+```git
+# it cannot show the history across the move
+git log --stat -- source/svg/header.svg
+# This one below can show every history with -M
+git log --stat -M --follow -- source/svg/header.svg
+```
