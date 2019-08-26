@@ -26,6 +26,11 @@
     - [Log in the most easy way](#Log-in-the-most-easy-way)
     - [Log in one line or / and with stats](#Log-in-one-line-or--and-with-stats)
     - [Log with chained parameters](#Log-with-chained-parameters)
+  - [Remove](#Remove)
+    - [Remove file from the stage](#Remove-file-from-the-stage)
+    - [Remove deleted file](#Remove-deleted-file)
+    - [Update all tracked files (most commonly used)](#Update-all-tracked-files-most-commonly-used)
+    - [Remove file from cached / stage](#Remove-file-from-cached--stage)
 
 ## Setup
 
@@ -190,3 +195,53 @@ git log --oneline --stat
 ```git
 git log --graph --all --decorate --oneline 
 ```
+
+## Remove
+
+### Remove file from the stage
+
+```git
+git rm file1.txt
+```
+
+> Note:
+> With using the command above, "file1.txt" is only removed from cache/stage. The branch will not be affected, until "**git commit**" is called. By "**git status**", the removed / deleted files will be displayed, before commit.
+
+```git
+#remove
+git rm file1.txt
+#check
+git status
+#commit
+git commit -m "Remove file1.txt"
+```
+
+### Remove deleted file
+
+```git
+# delete from file system
+rm file2.txt
+# check status
+git status
+# even the file is deleted, it can still be removed from stage 
+git rm file2.txt
+```
+
+### Update all tracked files (most commonly used)
+
+which also means all delted files can be removed, if they have been tracked before. However, the modification in other tracked files will be updated, too.
+
+```git
+git add -u
+# or for the current path
+git add -u .
+```
+
+### Remove file from cached / stage
+
+```git
+git rm --cahced file3.txt
+```
+
+> Note: The file was not removed from file system. Instead it is no more tracked by **git**.
+
