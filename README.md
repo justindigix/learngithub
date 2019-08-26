@@ -22,6 +22,10 @@
     - [Diff comparing current working to the HEAD](#Diff-comparing-current-working-to-the-HEAD)
     - [Stylish Diff commands](#Stylish-Diff-commands)
     - [Diff in status](#Diff-in-status)
+  - [Log](#Log)
+    - [Log in the most easy way](#Log-in-the-most-easy-way)
+    - [Log in one line or / and with stats](#Log-in-one-line-or--and-with-stats)
+    - [Log with chained parameters](#Log-with-chained-parameters)
 
 ## Setup
 
@@ -160,3 +164,29 @@ git diff --cached --stat
 git diff HEAD --stat
 ```
 
+## Log
+
+### Log in the most easy way
+
+```git 
+git log
+```
+
+This command shows all logs from the latest to the oldest in timeline.
+
+### Log in one line or / and with stats
+
+```git
+# log in one line, only shortend commit ref and message
+git log --oneline
+# log with stats, all invloved files.
+git log --stat
+# log in oneline and with stat
+git log --oneline --stat
+```
+
+### Log with chained parameters
+
+```git
+git log --graph --all --decorate --oneline 
+```
