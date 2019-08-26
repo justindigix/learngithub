@@ -2,6 +2,22 @@
 
 ## Setup
 
+### Init a normal repository
+
+In case for a normal repository, which is usually applied in a develope directory. This is a very commonly used with GitHub or custom git server together.
+
+```Git
+git init
+```
+
+### Init a bare (naked) repository
+
+In case for a shared / team repository. Normally used in a custom git server.
+
+```Git
+git init --bare
+```
+
 ### create a new repository on the command line
 
 ```Git
