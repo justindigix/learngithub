@@ -1,5 +1,22 @@
 # GitHub & Git Foundation
 
+- [GitHub & Git Foundation](#GitHub--Git-Foundation)
+  - [Setup](#Setup)
+    - [Init a normal repository](#Init-a-normal-repository)
+    - [Init a bare (naked) repository](#Init-a-bare-naked-repository)
+    - [create a new repository on the command line](#create-a-new-repository-on-the-command-line)
+    - [push an existing repository from the command line](#push-an-existing-repository-from-the-command-line)
+  - [Configurations](#Configurations)
+    - [Config the user name and email](#Config-the-user-name-and-email)
+      - [In gloabal](#In-gloabal)
+      - [In local](#In-local)
+    - [Setting colors](#Setting-colors)
+    - [Cheking logs](#Cheking-logs)
+  - [Commit](#Commit)
+    - [Check status](#Check-status)
+    - [Add files into staging area](#Add-files-into-staging-area)
+    - [Commit files](#Commit-files)
+
 ## Setup
 
 ### Init a normal repository
@@ -40,11 +57,21 @@ git push -u origin master
 
 ### Config the user name and email
 
+#### In gloabal
+
 ```Git
 git config --global user.name
 
 git config --global user.email
 
+```
+
+#### In local
+
+```Git
+git config --local user.name <user name>
+
+git config --local user.email <user email>
 ```
 
 ### Setting colors
@@ -58,3 +85,28 @@ git config --global color.ui auto
 
 ```
 
+### Cheking logs
+
+```Git
+git log
+```
+
+## Commit
+
+### Check status
+
+```Git
+git status
+```
+
+### Add files into staging area
+
+```git
+git add <file>
+```
+
+### Commit files
+
+```git
+git commit -m "<description>"
+```
