@@ -1,6 +1,7 @@
 # all .txt file
 *.txt
-!file1.txt
+*.code-workspace
+# !file1.txt
 # .sass-cache
 # all tmp directory
 # tmp/
